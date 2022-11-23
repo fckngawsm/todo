@@ -1,0 +1,7 @@
+.task__button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}

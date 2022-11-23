@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">todo</h1>
+            <p class="header__subtitle">manage your affairs directly on the site</p>
+        </header>
+        <main class="main">
+            <section class="todo">
+                <div class="todo__about">
+                    <h2 class="todo__title">
+                        Create delete and change your tasks for the day
+                    </h2>
+                    <p class="todo__subtitle">
+                        Create your task!
+                    </p>
+                </div>
+                <form class="todo__form">
+                    <fieldset class="todo__information">
+                        <input class="todo__input" type="text" value="" placeholder="input your task" maxlength="50"
+                            minlength="2" />
+                        <button class="todo-button__submit" type="submit">
+                            submit
+                        </button>
+                    </fieldset>
+                </form>
+                <div class="tasks">
+                </div>
+            </section>
+        </main>
+    </div>
+    <template id="template">
+        <div class="task">
+            <p class="task__text">push project</p>
+            <div class="task__element-change">
+                <button class="task__button task__button_type_change">
+                    <img class="task-image" src="./images/change.svg" alt="change">
+                </button>
+                <button class="task__button task__button_type_copy">
+                    <img class="task-image"
+                    src="./images/copy.svg" alt="copy">
+                </button>
+                <button class="task__button task__button_type_delete">
+                    <img class="task-image"
+                    src="./images/delete.svg" alt="delete">
+                </button>
+            </div>
+        </div>
+    </template>
+    <script src="./pages/index.js"></script>
+</body>
+</html>

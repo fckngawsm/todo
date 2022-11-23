@@ -1,0 +1,25 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/inter.css);
+@import url(../blocks/page/page.css);
+@import url(../blocks/body/body.css);
+/* main */
+@import url(../blocks/main/main.css);
+/* header */
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__title/header__title.css);
+@import url(../blocks/header/__subtitle/header__subtitle.css);
+/* todo */
+@import url(../blocks/todo/todo.css);
+@import url(../blocks/todo/__title/todo__title.css);
+@import url(../blocks/todo/__subtitle/todo__subtitle.css);
+@import url(../blocks/todo/__form/todo__form.css);
+@import url(../blocks/todo/__information/todo__iformation.css);
+@import url(../blocks/todo/__input/todo__input.css);
+@import url(../blocks/todo/-button__submit/todo-button__submit.css);
+/* tasks */
+@import url(../blocks/tasks/tasks.css);
+/* task */
+@import url(../blocks/task/task.css);
+@import url(../blocks/task/__text/task__text.css);
+@import url(../blocks/task/__button/task__button.css);
+@import url(../blocks/task/__element-change/task__element-change.css);
