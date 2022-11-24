@@ -43,6 +43,7 @@ function addItem(e) {
     editItemElement.textContent = todoInput.value;
     todoButton.textContent = "Submit";
   }
+  editItemElement = null
   todoInput.value = null;
 }
 // render item
