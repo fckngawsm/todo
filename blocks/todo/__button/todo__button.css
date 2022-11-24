@@ -1,9 +1,10 @@
-.todo-button__submit {
+.todo__button {
     width: 20%;
     border: none;
     background-color: black;
     color: white;
     border: 1px solid white;
     padding: 10px;
+    margin-left: 10px;
     border-radius: 10px;
 }

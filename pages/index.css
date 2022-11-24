@@ -15,7 +15,7 @@
 @import url(../blocks/todo/__form/todo__form.css);
 @import url(../blocks/todo/__information/todo__iformation.css);
 @import url(../blocks/todo/__input/todo__input.css);
-@import url(../blocks/todo/-button__submit/todo-button__submit.css);
+@import url(../blocks/todo/__button/todo__button.css);
 /* tasks */
 @import url(../blocks/tasks/tasks.css);
 /* task */
@@ -23,3 +23,8 @@
 @import url(../blocks/task/__text/task__text.css);
 @import url(../blocks/task/__button/task__button.css);
 @import url(../blocks/task/__element-change/task__element-change.css);
+@import url(../blocks/task/__element-change/_no-visible/element__change_no-visible.css);
+@import url(../blocks/task/__clone/task__clone.css);
+@import url(../blocks/task/__copy/task__copy.css);
+@import url(../blocks/task/__copy/_visible/task__copy_visible.css);
+@import url(../blocks/task/__clone/_visible/task__clone_visible.css);

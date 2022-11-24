@@ -29,7 +29,7 @@
                     <fieldset class="todo__information">
                         <input class="todo__input" type="text" value="" placeholder="input your task" maxlength="50"
                             minlength="2" />
-                        <button class="todo-button__submit" type="submit">
+                        <button class="todo__button todo-button__submit" type="submit">
                             submit
                         </button>
                     </fieldset>
@@ -41,7 +41,10 @@
     </div>
     <template id="template">
         <div class="task">
-            <p class="task__text">push project</p>
+            <div class="task__info">
+                <p class="task__copy">Copy</p>
+                <h2 class="task__text"></h2>
+            </div>
             <div class="task__element-change">
                 <button class="task__button task__button_type_change">
                     <img class="task-image" src="./images/change.svg" alt="change">
@@ -57,6 +60,6 @@
             </div>
         </div>
     </template>
-    <script src="./pages/index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

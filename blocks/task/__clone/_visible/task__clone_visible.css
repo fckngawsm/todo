@@ -1,0 +1,4 @@
+.task__clone_visible {
+    display: flex;
+    background-color: grey;
+}
