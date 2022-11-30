@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+    <link rel="stylesheet" href="./pages/index.css">
+<script defer src="main.js"></script></head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <div class="header__text">
+                <h1 class="header__title">todo</h1>
+                <p class="header__subtitle">manage your affairs directly on the site</p>
+            </div>
+            <form class="header__form">
+                <input class="header__input" value="" type="text" placeholder="find task" maxlength="30"
+                autocomplete="off">
+                <button class="header__button" alt="search"></button>
+            </form>
+        </header>
+        <main class="main">
+            <section class="todo">
+                <div class="todo__about">
+                    <h2 class="todo__title">
+                        Create delete and change your tasks for the day
+                    </h2>
+                    <p class="todo__subtitle">
+                        Create your task
+                    </p>
+                </div>
+                <form class="todo__form" novalidate>
+                    <fieldset class="todo__information">
+                        <div class="todo__input-information">
+                            <input id="todo" class="todo__input" type="text" placeholder="input your task" value=""
+                                maxlength="30" minlength="2" autocomplete="off" required />
+                            <span id="todo_error" class="todo__error">You missed this field.</span>
+                        </div>
+                        <button class="todo__button" type="submit">
+                            submit
+                        </button>
+                    </fieldset>
+                </form>
+                <div class="tasks">
+                </div>
+            </section>
+        </main>
+    </div>
+    <template id="template">
+        <div class="task">
+            <div class="task__info">
+                <p class="task__copy">Copy</p>
+                <h2 class="task__text"></h2>
+            </div>
+            <div class="task__element-change">
+                <button class="task__button task__button_type_change">
+                    <img class="task-image" src="/images/change.svg" alt="change">
+                </button>
+                <button class="task__button task__button_type_copy">
+                    <img class="task-image" src="/images/copy.svg" alt="copy">
+                </button>
+                <button class="task__button task__button_type_delete">
+                    <img class="task-image" src="/images/delete.svg" alt="delete">
+                </button>
+            </div>
+        </div>
+    </template>
+    <script src="/scripts/index.js"></script>
+    <script src="/scripts/validate.js"></script>
+</body>
+
+</html>
