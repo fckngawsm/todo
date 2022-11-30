@@ -1,4 +1,5 @@
 .todo__button {
+    cursor: pointer;
     width: 20%;
     border: none;
     background-color: black;

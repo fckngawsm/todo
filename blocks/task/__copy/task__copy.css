@@ -1,4 +1,6 @@
 .task__copy {
+    margin: 0;
+    margin-bottom: 10px;
     display: none;
     font-size: 13px;
 }

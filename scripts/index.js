@@ -4,6 +4,10 @@ const todoForm = document.querySelector(".todo__form");
 const todoInput = document.querySelector(".todo__input");
 const todoButton = todoForm.querySelector(".todo__button");
 const todoSubtitle = document.querySelector(".todo__subtitle");
+
+const headerInput = document.querySelector(".header__input");
+const headerForm = document.querySelector(".header__form");
+
 let editItemElement;
 const initialItem = [
   "push project",
@@ -13,13 +17,13 @@ const initialItem = [
 ];
 // function
 // for copy item
-function copyItem(evt){
+function copyItem(evt) {
   let listItemElement = evt.target.closest(".task").cloneNode(true);
-  listItemElement.classList.add('task__clone_visible');
-  let copyElement = listItemElement.querySelector('.task__copy');
-  copyElement.classList.add('task__copy_visible');
-  let changeElemnt = listItemElement.querySelector('.task__element-change');
-  changeElemnt.classList.add('element__change_no-visible')
+  listItemElement.classList.add("task__clone_visible");
+  let copyElement = listItemElement.querySelector(".task__copy");
+  copyElement.classList.add("task__copy_visible");
+  let changeElemnt = listItemElement.querySelector(".task__element-change");
+  changeElemnt.classList.add("element__change_no-visible");
   tasks.append(listItemElement);
 }
 // delete item
@@ -43,8 +47,9 @@ function addItem(e) {
     editItemElement.textContent = todoInput.value;
     todoButton.textContent = "Submit";
   }
-  editItemElement = null
+  editItemElement = null;
   todoInput.value = null;
+  disableSubmitButton(vallidateSetting, todoButton);
 }
 // render item
 function renderItem(text) {
@@ -62,8 +67,27 @@ function renderItem(text) {
 }
 // render item from arr
 function renderList(arr) {
-  arr.forEach((item) => renderItem(item));
+  arr.forEach((item) => {
+    renderItem(item);
+  });
 }
 renderList(initialItem);
-
+function filterList() {
+  let input = headerInput;
+  input.addEventListener("keyup", function () {
+    let filter = input.value.toUpperCase();
+    let filterItems = document.querySelectorAll(".task");
+    filterItems.forEach((item) => {
+      if (item.textContent.toUpperCase().indexOf(filter) > -1) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+}
+headerForm.addEventListener('submit',(evt)=> {
+  evt.preventDefault();
+  filterList()
+})
 todoForm.addEventListener("submit", addItem);

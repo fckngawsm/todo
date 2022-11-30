@@ -1,0 +1,5 @@
+.header__search {
+    width: 650px;
+    display: flex;
+    justify-content: space-between;
+}

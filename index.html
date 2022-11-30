@@ -12,8 +12,15 @@
 <body class="body">
     <div class="page">
         <header class="header">
-            <h1 class="header__title">todo</h1>
-            <p class="header__subtitle">manage your affairs directly on the site</p>
+            <div class="header__text">
+                <h1 class="header__title">todo</h1>
+                <p class="header__subtitle">manage your affairs directly on the site</p>
+            </div>
+            <form class="header__form">
+                <input class="header__input" value="" type="text" placeholder="find task" maxlength="30"
+                autocomplete="off">
+                <button class="header__button" src="./images/search.svg" alt="search"></button>
+            </form>
         </header>
         <main class="main">
             <section class="todo">
@@ -30,7 +37,7 @@
                         <div class="todo__input-information">
                             <input id="todo" class="todo__input" type="text" placeholder="input your task" value=""
                                 maxlength="30" minlength="2" autocomplete="off" required />
-                            <span id="todo_error" class="todo__error">Вы пропустили это поле.</span>
+                            <span id="todo_error" class="todo__error">You missed this field.</span>
                         </div>
                         <button class="todo__button" type="submit">
                             submit
