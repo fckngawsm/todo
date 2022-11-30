@@ -2,7 +2,7 @@
 const tasks = document.querySelector(".tasks");
 const todoForm = document.querySelector(".todo__form");
 const todoInput = document.querySelector(".todo__input");
-const todoButton = todoForm.querySelector(".todo-button__submit");
+const todoButton = todoForm.querySelector(".todo__button");
 const todoSubtitle = document.querySelector(".todo__subtitle");
 let editItemElement;
 const initialItem = [

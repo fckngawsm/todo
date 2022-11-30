@@ -25,11 +25,12 @@
                         Create your task
                     </p>
                 </div>
-                <form class="todo__form">
+                <form class="todo__form" novalidate>
                     <fieldset class="todo__information">
-                        <input class="todo__input" type="text" value="" placeholder="input your task" maxlength="50"
-                            minlength="2" />
-                        <button class="todo__button todo-button__submit" type="submit">
+                        <input id="todo" class="todo__input" type="text" placeholder="input your task" value="" maxlength="30"
+                            minlength="2" autocomplete="off" required />
+                        <span id="todo_error" class="todo__error">Вы пропустили это поле.</span>
+                        <button class="todo__button" type="submit">
                             submit
                         </button>
                     </fieldset>
@@ -61,5 +62,6 @@
         </div>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 </html>

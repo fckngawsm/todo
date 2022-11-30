@@ -1,0 +1,6 @@
+.todo__button_disabled {
+    cursor: default;
+    color: black;
+    background: #E5E5E5;
+    pointer-events: none;
+}
