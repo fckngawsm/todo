@@ -1,6 +1,3 @@
-// const formElement = document.querySelector('.todo__form');
-// const inputElement = document.querySelector(".todo__input");
-
 const showInputError = (formElement, inputElement, errorMessage, options) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}_error`);
   errorElement.classList.add(options.errorClass);

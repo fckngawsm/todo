@@ -19,6 +19,7 @@
 @import url(../blocks/todo/__error/todo__error.css);
 @import url(../blocks/todo/__error/_visibility/todo__error_visibility.css);
 @import url(../blocks/todo/__button/_disabled/todo__button_disabled.css);
+@import url(../blocks/todo/__input-information/todo__input-information.css);
 /* tasks */
 @import url(../blocks/tasks/tasks.css);
 /* task */
