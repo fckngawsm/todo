@@ -9,13 +9,13 @@ const headerInput = document.querySelector(".header__input");
 const headerForm = document.querySelector(".header__form");
 
 let editItemElement;
-const initialItem = [
-  "push project",
-  "create new app",
-  "find job",
-  "go to walk",
-];
-// function
+let initialItem = [];
+initialItem = JSON.parse(localStorage.getItem('initialItem'))
+// save data to localStorage
+function saveToLocalStorage() {
+  localStorage.setItem("initialItem", JSON.stringify(initialItem));
+}
+
 // for copy item
 function copyItem(evt) {
   let listItemElement = evt.target.closest(".task").cloneNode(true);
@@ -24,11 +24,20 @@ function copyItem(evt) {
   copyElement.classList.add("task__copy_visible");
   let changeElemnt = listItemElement.querySelector(".task__element-change");
   changeElemnt.classList.add("element__change_no-visible");
+  let listItemElementText = listItemElement.querySelector('.task__text').textContent
+  listItemElementText += '(copy)'
+  initialItem.push(listItemElementText)
+  saveToLocalStorage()
   tasks.append(listItemElement);
 }
 // delete item
 function deleteItem(evt) {
-  evt.target.closest(".task").remove();
+  let currentItem = evt.target.closest(".task");
+  let currentItemText = currentItem.querySelector('.task__text').textContent;
+  initialItem = initialItem.filter((item) => item !== currentItemText);
+  localStorage.removeItem('initialItem' , JSON.stringify(initialItem))
+  saveToLocalStorage();
+  currentItem.remove();
 }
 // edit item
 function editItem(evt) {
@@ -37,7 +46,9 @@ function editItem(evt) {
   editItemElement = editItemText;
   todoInput.value = editItemText.textContent;
   todoButton.textContent = "Change";
+  saveToLocalStorage();
 }
+
 // add item
 function addItem(e) {
   e.preventDefault();
@@ -49,6 +60,8 @@ function addItem(e) {
   }
   editItemElement = null;
   todoInput.value = null;
+  initialItem.push(inputValue);
+  saveToLocalStorage();
   disableSubmitButton(vallidateSetting, todoButton);
 }
 // render item
@@ -72,6 +85,7 @@ function renderList(arr) {
   });
 }
 renderList(initialItem);
+// filter list
 function filterList() {
   let input = headerInput;
   input.addEventListener("keyup", function () {
@@ -86,8 +100,9 @@ function filterList() {
     });
   });
 }
-headerForm.addEventListener('submit',(evt)=> {
+// event listener
+headerForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  filterList()
-})
+  filterList();
+});
 todoForm.addEventListener("submit", addItem);
