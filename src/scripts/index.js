@@ -1,21 +1,19 @@
-// constants
-const tasks = document.querySelector(".tasks");
-const todoForm = document.querySelector(".todo__form");
-const todoInput = document.querySelector(".todo__input");
-const todoButton = todoForm.querySelector(".todo__button");
-const todoSubtitle = document.querySelector(".todo__subtitle");
-
-const headerInput = document.querySelector(".header__input");
-const headerForm = document.querySelector(".header__form");
-
+import "../pages/index.css";
+import Validate from "./validate.js";
+import { vallidateSetting } from "../utils/constans.js";
+import {
+  tasks,
+  todoForm,
+  todoInput,
+  todoButton,
+  headerInput,
+  headerForm,
+} from "../utils/constans.js";
 let editItemElement;
 let initialItem = [];
-initialItem = JSON.parse(localStorage.getItem('initialItem'))
-// save data to localStorage
-function saveToLocalStorage() {
-  localStorage.setItem("initialItem", JSON.stringify(initialItem));
-}
-
+// copy
+const validate = new Validate(vallidateSetting, todoForm);
+validate.enableValidation();
 // for copy item
 function copyItem(evt) {
   let listItemElement = evt.target.closest(".task").cloneNode(true);
@@ -24,18 +22,19 @@ function copyItem(evt) {
   copyElement.classList.add("task__copy_visible");
   let changeElemnt = listItemElement.querySelector(".task__element-change");
   changeElemnt.classList.add("element__change_no-visible");
-  let listItemElementText = listItemElement.querySelector('.task__text').textContent
-  listItemElementText += '(copy)'
-  initialItem.push(listItemElementText)
-  saveToLocalStorage()
+  let listItemElementText =
+  listItemElement.querySelector(".task__text").textContent;
+  listItemElementText += "(copy)";
+  initialItem.push(listItemElementText);
+  saveToLocalStorage();
   tasks.append(listItemElement);
 }
 // delete item
 function deleteItem(evt) {
   let currentItem = evt.target.closest(".task");
-  let currentItemText = currentItem.querySelector('.task__text').textContent;
+  let currentItemText = currentItem.querySelector(".task__text").textContent;
   initialItem = initialItem.filter((item) => item !== currentItemText);
-  localStorage.removeItem('initialItem' , JSON.stringify(initialItem))
+  localStorage.removeItem("initialItem", JSON.stringify(initialItem));
   saveToLocalStorage();
   currentItem.remove();
 }
@@ -62,8 +61,8 @@ function addItem(e) {
   todoInput.value = null;
   initialItem.push(inputValue);
   saveToLocalStorage();
-  disableSubmitButton(vallidateSetting, todoButton);
 }
+initialItem = JSON.parse(localStorage.getItem("initialItem"));
 // render item
 function renderItem(text) {
   const template = document.querySelector("#template").content;
@@ -79,10 +78,11 @@ function renderItem(text) {
   tasks.prepend(listItem);
 }
 // render item from arr
-function renderList(arr) {
-  arr.forEach((item) => {
-    renderItem(item);
+function renderList(array) {
+  array.forEach(element => {
+    renderItem(element)
   });
+  saveToLocalStorage()
 }
 renderList(initialItem);
 // filter list
@@ -105,4 +105,11 @@ headerForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   filterList();
 });
-todoForm.addEventListener("submit", addItem);
+todoForm.addEventListener("submit", (evt) => {
+  addItem(evt), validate.disableSubmitButton();
+});
+
+// save data to localStorage
+function saveToLocalStorage() {
+  localStorage.setItem("initialItem", JSON.stringify(initialItem));
+}

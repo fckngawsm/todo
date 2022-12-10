@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todo</title>
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="body">
@@ -57,19 +56,18 @@
             </div>
             <div class="task__element-change">
                 <button class="task__button task__button_type_change">
-                    <img class="task-image" src="/images/change.svg" alt="change">
+                    <img class="task-image" src="<%=require('./images/change.svg')%>" alt="change">
                 </button>
                 <button class="task__button task__button_type_copy">
-                    <img class="task-image" src="/images/copy.svg" alt="copy">
+                    <img class="task-image" src="<%=require('./images/copy.svg')%>" alt="copy">
                 </button>
                 <button class="task__button task__button_type_delete">
-                    <img class="task-image" src="/images/delete.svg" alt="delete">
+                    <img class="task-image" src="<%=require('./images/delete.svg')%>" alt="delete">
                 </button>
             </div>
         </div>
     </template>
-    <script src="/scripts/index.js"></script>
-    <script src="/scripts/validate.js"></script>
+    <!-- <script type="module" src="../src/scripts/index.js"></script> -->
 </body>
 
 </html>
